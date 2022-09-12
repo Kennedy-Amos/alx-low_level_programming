@@ -1,23 +1,39 @@
-#include <stdio.h>
+#!/bin/bash
+
+# Simply a wrapper script to keep you from having to use betty-style
+
+# and betty-doc separately on every item.
+
+# Originally by Tim Britton (@wintermanc3r), multiargument added by
+
+# Larry Madeo (@hillmonkey)
 
 
 
-/**
+BIN_PATH="/usr/local/bin"
 
- * main - Entry point
+BETTY_STYLE="betty-style"
 
- *
+BETTY_DOC="betty-doc"
 
- * Return: Always 0 (Success)
 
- */
 
-int main(void)
+if [ "$#" = "0" ]; then
 
-{
+    echo "No arguments passed."
 
-	puts("\"Programming is like building a multilingual puzzle");
+        exit 1
 
-	return (0);
+	fi
 
-}
+
+
+	for argument in "$@" ; do
+
+	    echo -e "\n========== $argument =========="
+
+	        ${BIN_PATH}/${BETTY_STYLE} "$argument"
+
+		    ${BIN_PATH}/${BETTY_DOC} "$argument"
+
+		    done
